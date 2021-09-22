@@ -81,11 +81,12 @@ function buildCharts(sample) {
     // Thus, we can use our 'samples' variable as a starting point for our
     // three new variables. We'll use map() to transform the 'samples' dataset,
     // like we did in 12.3.2 (2021).
-    var otuId = samples.map(id => id.otu_ids);
+    // We'll use slices of the 'samples' data.
+    var otuId = samples.slice(0).map(id => id.otu_ids);
     console.log(otuId)
-    var otuLabels = samples.map(label => label.otu_labels);
+    var otuLabels = samples.slice(0).map(label => label.otu_labels);
     console.log(otuLabels)
-    var sampleValues = samples.map(value => value.sample_values)[0];
+    var sampleValues = samples.slice(0).map(value => value.sample_values)[0];
     console.log(sampleValues)
     // Observe that our 'sampleValues' function returns a lot of arrays.
     // Per 12.3.2 (2021), we'll use a forEach function t
