@@ -101,11 +101,11 @@ function buildCharts(sample) {
     //  so the otu_ids with the most bacteria are last. 
     // Recall that 'otuId' holds an array of otu_ids. To make sure our array is
     // in descending order, we'll use sort() with reverse() as explained in 12.2.2 (2021).
-    // This time, however, we'll use slice, reverse, and map instead of sort
-    var yticksArray = otuId.slice(0).reverse().map(otoIdentity => otoIdentity);
+    // This time, however, we'll use slice, reverse, and map instead of sort.
+    var yticksArray = otuId.slice(0).map(otoIdentity => otoIdentity).reverse();
+    console.log(yticksArray)
     // Additionally, to get only the top 10 entries from the first array, we not only call for the 0th array
     // but also use the slice() method mentioned in 12.2.2 (2021), starting at index 0 and ending before index 10.
-    console.log(yticksArray)
     var yticks = yticksArray[0].slice(0, 10);
     console.log(yticks);
     // From the console, we see that we've obtained the otu_id numbers.
