@@ -120,11 +120,14 @@ function buildCharts(sample) {
     // Source1: https://community.plotly.com/t/flipping-horizontal-bar-chart-to-descending-order/15456
     // Source2: https://stackoverflow.com/questions/46201532/plotly-js-reversing-the-horizontal-bar-chart-in-plotly
     // Without this specific autorange parameter, the values go in ascending order.
-    // Source3: https://community.plotly.com/t/horizontal-bar-automatically-order-by-numerical-value/7183
-    // We'll define the order parameter to be 'descending' so that our bar chart shows bars in descending order.
-    var barLayout = {title: "The Top 10 Bacteria Cultures Found", order: 'descending'
+    var barLayout = {title: "The Top 10 Bacteria Cultures Found"
+    };
+    // We'll now define a config parameter that defines order as 'descending'.
+    // https://community.plotly.com/t/horizontal-bar-automatically-order-by-numerical-value/7183
+    // https://plotly.com/javascript/configuration-options/
+    var barConfig = {order: 'descending'
     };
     // 10. Use Plotly to plot the data with the layout. 
-    Plotly.newPlot("bar", barData, barLayout)
+    Plotly.newPlot("bar", barData, barLayout, barConfig)
   });
 }
