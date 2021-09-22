@@ -122,9 +122,11 @@ function buildCharts(sample) {
     // We tried showing the top 10 values on a horizontal bar chart where the bars go from greatest to least
     // https://community.plotly.com/t/horizontal-bar-automatically-order-by-numerical-value/7183
     // https://plotly.com/javascript/configuration-options/
-    // We instead got a chart that went from least to greatest, but otherwise had the correct top 10 values.
-    // So we'll try setting order to 'ascending'.
-    var barConfig = {order: 'ascending'
+    // We instead got a chart that went from least to greatest, but otherwise had the correct top 10 values
+    // on Chrome and Firefox
+    // So we tried setting order to 'ascending'. We don't get a meaningful change. In fact, on Chrome,
+    // the values are incorrect
+    var barConfig = {order: 'descending'
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout, barConfig)
