@@ -83,7 +83,9 @@ function buildCharts(sample) {
     // like we did in 12.3.2 (2021).
     // We'll use slices of the 'samples' data.
     
-    // As last resort, we'll add reverse() to the otuId code.
+    // As last resort, we'll add reverse() to the sort() otuId code.
+    // Time for slice, reverse, and map.
+    // https://www.geeksforgeeks.org/how-to-use-map-on-an-array-in-reverse-order-with-javascript/
     var otuId = samples.slice(0).reverse().map(identity => identity.otu_ids);
     console.log(otuId)
     var otuLabels = samples.slice(0).map(label => label.otu_labels);
@@ -99,7 +101,8 @@ function buildCharts(sample) {
     //  so the otu_ids with the most bacteria are last. 
     // Recall that 'otuId' holds an array of otu_ids. To make sure our array is
     // in descending order, we'll use sort() with reverse() as explained in 12.2.2 (2021).
-    var yticksArray = otuId.sort((a, b) => a - b).reverse();
+    // This time, however, we'll use slice, reverse, and map instead of sort
+    var yticksArray = otuId.slice(0).reverse().map(otoIdentity => otoIdentity);
     // Additionally, to get only the top 10 entries from the first array, we not only call for the 0th array
     // but also use the slice() method mentioned in 12.2.2 (2021), starting at index 0 and ending before index 10.
     console.log(yticksArray)
