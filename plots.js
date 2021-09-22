@@ -61,15 +61,17 @@ function buildCharts(sample) {
     // Since we're looking at the 'samples' section of data,
     // we'll make a new variable named 'samples'.
     var samples = data.samples;
-
+    console.log(samples)
     // 4. Create a variable that filters the samples for the object with the desired sample number.
     // Following 12.4.3 (2021), we'll make a filter function 
     // 'outputSample' that filters our sample objects by their id.
     var outputSamples = samples.filter(samplesObj => samplesObj.id == sample);
+    console.log(outputSamples)
     //  5. Create a variable that holds the first sample in the array.
     // Per 12.4.3 (2021), we'll declare a variable 'results' that
     // brings up the first results of 'outputSample'.
     var result = outputSamples[0];
+    console.log(result)
 
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     // Notably, these three data sets are contained within 'samples'. 
@@ -77,7 +79,9 @@ function buildCharts(sample) {
     // three new variables. We'll use map() to transform the 'samples' dataset,
     // like we did in 12.3.2 (2021).
     var otuId = samples.map(id => id.otu_ids);
+    console.log(otuId)
     var otuLabels = samples.map(label => label.otu_labels);
+    console.log(otuLabels)
     var sampleValues = samples.map(value => value.sample_values)[0];
     console.log(sampleValues)
     // Observe that our 'sampleValues' function returns a lot of arrays.
