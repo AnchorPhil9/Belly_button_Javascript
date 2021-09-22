@@ -136,12 +136,15 @@ function buildCharts(sample) {
     // https://community.plotly.com/t/horizontal-bar-automatically-order-by-numerical-value/7183
     // https://plotly.com/javascript/configuration-options/
     // We instead got a chart that went from least to greatest, but otherwise had the correct top 10 values
-    // on Chrome and Firefox
+    // on Chrome and Firefox.
     // So we tried setting order to 'ascending'. We don't get a meaningful change. In fact, on Chrome,
-    // the values are incorrect
-    var barConfig = {order: 'descending'
-    };
+    // the values are incorrect. It wasn't until employing slice-reverse-map that values were the same
+    // across Chrome and Firefox. As a final edit, we'll disable the barConfig code, see if it changes
+    // the bar graph.
+    console.log("Final Change")
+    // var barConfig = {order: 'descending'
+    // };
     // 10. Use Plotly to plot the data with the layout. 
-    Plotly.newPlot("bar", barData, barLayout, barConfig)
+    Plotly.newPlot("bar", barData, barLayout)
   });
 }
