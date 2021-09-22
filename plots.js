@@ -70,8 +70,8 @@ function buildCharts(sample) {
     //  5. Create a variable that holds the first sample in the array.
     // Per 12.4.3 (2021), we'll declare a variable 'results' that
     // brings up the first results of 'outputSample'.
-    var result = outputSamples[0];
-    console.log(result)
+    var output = outputSamples[0];
+    console.log(output)
 
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
     // Notably, these three data sets are contained within 'samples'. 
