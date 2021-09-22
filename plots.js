@@ -89,10 +89,7 @@ function buildCharts(sample) {
     //  so the otu_ids with the most bacteria are last. 
     // Recall that 'otuId' holds an array of otu_ids. To make sure our array is
     // in descending order, we'll use sort() with reverse() as explained in 12.2.2 (2021).
-    // 9/21/21: We find that the top 10 sample_values are sorted in **ascending** order. This time, we'll
-    // only use sort() without reverse() to see if the values are sorted in descending order.
-    // We've changed the code from "a - b" to "b - a".
-    var yticksArray = otuId.sort((a, b) => b - a);
+    var yticksArray = otuId.sort((a, b) => a - b).reverse();
     // Additionally, to get only the top 10 entries from the first array, we not only call for the 0th array
     // but also use the slice() method mentioned in 12.2.2 (2021), starting at index 0 and ending before index 10.
     console.log(yticksArray)
