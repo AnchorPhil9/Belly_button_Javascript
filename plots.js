@@ -82,7 +82,7 @@ function buildCharts(sample) {
     // three new variables. We'll use map() to transform the 'samples' dataset,
     // like we did in 12.3.2 (2021).
     // We'll use slices of the 'samples' data.
-    var otuId = samples.slice(0).map(id => id.otu_ids);
+    var otuId = samples.slice(0).map(identity => identity.otu_ids);
     console.log(otuId)
     var otuLabels = samples.slice(0).map(label => label.otu_labels);
     console.log(otuLabels)
