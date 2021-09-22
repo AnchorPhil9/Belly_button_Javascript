@@ -111,8 +111,8 @@ function buildCharts(sample) {
     yticks.forEach(tick => yNames.push('OTU ' + tick));
     console.log(yNames)
     // 8. Create the trace for the bar chart. 
-    var barData = {x: sampleValues, y: yNames, type: "bar", orientation: 'h'
-    };
+    var barData = [{x: sampleValues, y: yNames, type: "bar", orientation: 'h'
+    }];
     // 9. Create the layout for the bar chart. 
     // We'll add a title in similar fashion to what we did in 12.2.2 (2021).
     // Plus we'll add a layout parameter to our y-axis so that the values go in
