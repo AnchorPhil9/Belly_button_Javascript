@@ -119,10 +119,12 @@ function buildCharts(sample) {
     // Without this specific autorange parameter, the values go in ascending order.
     var barLayout = {title: "The Top 10 Bacteria Cultures Found"
     };
-    // We'll now define a config parameter that defines order as 'descending'.
+    // We tried showing the top 10 values on a horizontal bar chart where the bars go from greatest to least
     // https://community.plotly.com/t/horizontal-bar-automatically-order-by-numerical-value/7183
     // https://plotly.com/javascript/configuration-options/
-    var barConfig = {order: 'descending'
+    // We instead got a chart that went from least to greatest, but otherwise had the correct top 10 values.
+    // So we'll try setting order to 'ascending'.
+    var barConfig = {order: 'ascending'
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout, barConfig)
