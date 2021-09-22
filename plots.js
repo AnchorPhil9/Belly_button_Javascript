@@ -91,8 +91,8 @@ function buildCharts(sample) {
     // in descending order, we'll use sort() with reverse() as explained in 12.2.2 (2021).
     // 9/21/21: We find that the top 10 sample_values are sorted in **ascending** order. This time, we'll
     // only use sort() without reverse() to see if the values are sorted in descending order.
-    // We've changed the code from "a - b" to "b - a". We didn't get the desired results. So back to 'a - b'
-    var yticksArray = otuId.sort((a, b) => a - b);
+    // We've changed the code from "a - b" to "b - a".
+    var yticksArray = otuId.sort((a, b) => b - a);
     // Additionally, to get only the top 10 entries from the first array, we not only call for the 0th array
     // but also use the slice() method mentioned in 12.2.2 (2021), starting at index 0 and ending before index 10.
     console.log(yticksArray)
@@ -111,8 +111,8 @@ function buildCharts(sample) {
     yticks.forEach(tick => yNames.push('OTU ' + tick));
     console.log(yNames)
     // 8. Create the trace for the bar chart. 
-    var barData = [{x: sampleValues, y: yNames, type: "bar", orientation: 'h'
-    }];
+    var barData = {x: sampleValues, y: yNames, type: "bar", orientation: 'h'
+    };
     // 9. Create the layout for the bar chart. 
     // We'll add a title in similar fashion to what we did in 12.2.2 (2021).
     // Plus we'll add a layout parameter to our y-axis so that the values go in
@@ -120,7 +120,9 @@ function buildCharts(sample) {
     // Source1: https://community.plotly.com/t/flipping-horizontal-bar-chart-to-descending-order/15456
     // Source2: https://stackoverflow.com/questions/46201532/plotly-js-reversing-the-horizontal-bar-chart-in-plotly
     // Without this specific autorange parameter, the values go in ascending order.
-    var barLayout = {title: "The Top 10 Bacteria Cultures Found"
+    // Source3: https://community.plotly.com/t/horizontal-bar-automatically-order-by-numerical-value/7183
+    // We'll define the order parameter to be 'descending' so that our bar chart shows bars in descending order.
+    var barLayout = {title: "The Top 10 Bacteria Cultures Found", order: 'descending'
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout)
